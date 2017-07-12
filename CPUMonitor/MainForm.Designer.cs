@@ -15,6 +15,7 @@ namespace CPUMonitor
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.DataVisualization.Charting.Chart chartCPU;
+		private System.Windows.Forms.Button btn_StartAcquire;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -41,6 +42,7 @@ namespace CPUMonitor
 			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
 			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.chartCPU = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			this.btn_StartAcquire = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.chartCPU)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -60,11 +62,21 @@ namespace CPUMonitor
 			this.chartCPU.TabIndex = 0;
 			this.chartCPU.Text = "chart1";
 			// 
+			// btn_StartAcquire
+			// 
+			this.btn_StartAcquire.Location = new System.Drawing.Point(471, 348);
+			this.btn_StartAcquire.Name = "btn_StartAcquire";
+			this.btn_StartAcquire.Size = new System.Drawing.Size(75, 23);
+			this.btn_StartAcquire.TabIndex = 1;
+			this.btn_StartAcquire.Text = "Start";
+			this.btn_StartAcquire.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(558, 383);
+			this.Controls.Add(this.btn_StartAcquire);
 			this.Controls.Add(this.chartCPU);
 			this.Name = "MainForm";
 			this.Text = "CPUMonitor";
