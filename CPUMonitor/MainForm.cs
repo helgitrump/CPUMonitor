@@ -22,7 +22,7 @@ namespace CPUMonitor
 	{
 		
 		private Thread threadCPU;
-		private double[] dataCPU = new double[60];
+		private double[] dataCPU;
 		
 		public MainForm()
 		{
@@ -31,21 +31,22 @@ namespace CPUMonitor
 			//
 			InitializeComponent();
 			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+			
+			dataCPU = new double[60];
+			updateChartCPU();
+			
 		}
 		
 		private void getPerfCounter()
 		{
-			var perfCounterCPU = new PerformanceCounter("Processor Information",
+			PerformanceCounter perfCounterCPU = new PerformanceCounter("Processor Information",
 			                                            "% Processor Time", 
 			                                            "_Total");
 			
 			for(; true ;)
 			{
 				dataCPU[dataCPU.Length - 1] = Math.Round(perfCounterCPU.NextValue(), 0);
-				Array.Copy(dataCPU, 1, dataCPU, 0, dataCPU.Length -1);
+				Array.Copy(dataCPU, 1, dataCPU, 0, dataCPU.Length - 1);
 				
 				if(chartCPU.IsHandleCreated)
 				{
