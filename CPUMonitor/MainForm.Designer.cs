@@ -55,6 +55,7 @@ namespace CPUMonitor
 			this.chartCPU.Location = new System.Drawing.Point(12, 12);
 			this.chartCPU.Name = "chartCPU";
 			series1.ChartArea = "ChartArea1";
+			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
 			series1.Legend = "Legend1";
 			series1.Name = "CPU";
 			this.chartCPU.Series.Add(series1);
@@ -70,6 +71,7 @@ namespace CPUMonitor
 			this.btn_StartAcquire.TabIndex = 1;
 			this.btn_StartAcquire.Text = "Start";
 			this.btn_StartAcquire.UseVisualStyleBackColor = true;
+			this.btn_StartAcquire.Click += new System.EventHandler(this.Btn_StartAcquireClick);
 			// 
 			// MainForm
 			// 
