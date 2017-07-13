@@ -23,6 +23,7 @@ namespace CPUMonitor
 		
 		private Thread threadCPU;
 		private double[] dataCPU;
+		private PerformanceCounter pc;
 		
 		public MainForm()
 		{
@@ -34,18 +35,16 @@ namespace CPUMonitor
 			
 			dataCPU = new double[60];
 			updateChartCPU();
-			
+			pc = new PerformanceCounter("Processor Information",
+			                            "% Processor Time", 
+			                            "_Total");			
 		}
 		
 		private void getPerfCounter()
-		{
-			PerformanceCounter perfCounterCPU = new PerformanceCounter("Processor Information",
-			                                            "% Processor Time", 
-			                                            "_Total");
-			
+		{						
 			for(; true ;)
 			{
-				dataCPU[dataCPU.Length - 1] = Math.Round(perfCounterCPU.NextValue(), 0);
+				dataCPU[dataCPU.Length - 1] = Math.Round(pc.NextValue(), 0);
 				Array.Copy(dataCPU, 1, dataCPU, 0, dataCPU.Length - 1);
 				
 				if(chartCPU.IsHandleCreated)
@@ -56,18 +55,14 @@ namespace CPUMonitor
 					});
 				}
 				
-				Thread.Sleep(100);
+				Thread.Sleep(1000);
 			}
 		}
 		
 		private void updateChartCPU()
 		{
 			chartCPU.Series["CPU"].Points.Clear();
-			
-			for(int i = 0; i < dataCPU.Length; ++i)
-			{
-				chartCPU.Series["CPU"].Points.AddY(dataCPU[i]);
-			}
+			chartCPU.Series["CPU"].Points.DataBindY(dataCPU);
 		}
 		
 		private void Btn_StartAcquireClick(object sender, EventArgs e)
