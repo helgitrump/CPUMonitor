@@ -33,15 +33,16 @@ namespace CPUMonitor
 			InitializeComponent();
 			
 			
-			dataCPU = new float[60];
-			updateChartCPU();
+			dataCPU = new float[100];
+			//updateChartCPU(0.0f);
 			pc = new PerformanceCounter("Processor Information",
 			                            "% Processor Time", 
-			                            "_Total");			
+			                            "_Total");
+			updateChartCPU();
 		}
 		
 		private void getPerfCounter()
-		{						
+		{		
 			for(; true ;)
 			{
 				dataCPU[dataCPU.Length - 1] = pc.NextValue();
@@ -55,13 +56,12 @@ namespace CPUMonitor
 					});
 				}
 				
-				Thread.Sleep(1000);
+				Thread.Sleep(100);
 			}
 		}
 		
 		private void updateChartCPU()
 		{
-			chartCPU.Series["CPU"].Points.Clear();
 			chartCPU.Series["CPU"].Points.DataBindY(dataCPU);
 		}
 		
