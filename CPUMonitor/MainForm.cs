@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Diagnostics;
 using System.Threading;
 
@@ -31,13 +32,27 @@ namespace CPUMonitor
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
-			
-			dataCPU = new float[100];
+								
 			pc = new PerformanceCounter("Processor Information",
 			                            "% Processor Time", 
 			                            "_Total");
+			dataCPU = new float[100];
+			addChartCPUSeries();
 			updateChartCPU();
+		}
+		
+		private void addChartCPUSeries()
+		{			
+			int index = chartCPU.Series.Count;
+			chartCPU.Series.Add(index.ToString());
+			chartCPU.Series[index].ChartType = SeriesChartType.FastLine;
+			chartCPU.ChartAreas[index].AxisX.Interval = 10;
+			chartCPU.ChartAreas[index].AxisX.LabelStyle.Enabled = false;
+			chartCPU.ChartAreas[index].AxisX.MajorTickMark.Enabled = false;
+			chartCPU.ChartAreas[index].AxisY.Interval = 10;
+			chartCPU.ChartAreas[index].AxisY.Maximum = 100;
+			chartCPU.ChartAreas[index].AxisY.LabelStyle.Enabled = false;
+			chartCPU.ChartAreas[index].AxisY.MajorTickMark.Enabled = false;			
 		}
 		
 		private void getPerfCounter()
@@ -61,7 +76,7 @@ namespace CPUMonitor
 		
 		private void updateChartCPU()
 		{
-			chartCPU.Series["CPU"].Points.DataBindY(dataCPU);
+			chartCPU.Series[chartCPU.Series.Count - 1].Points.DataBindY(dataCPU);
 		}
 		
 		private void Btn_StartAcquireClick(object sender, EventArgs e)
