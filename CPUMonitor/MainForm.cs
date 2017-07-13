@@ -34,7 +34,6 @@ namespace CPUMonitor
 			
 			
 			dataCPU = new float[100];
-			//updateChartCPU(0.0f);
 			pc = new PerformanceCounter("Processor Information",
 			                            "% Processor Time", 
 			                            "_Total");
