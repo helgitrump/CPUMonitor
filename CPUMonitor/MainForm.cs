@@ -22,7 +22,7 @@ namespace CPUMonitor
 	{
 		
 		private Thread threadCPU;
-		private double[] dataCPU;
+		private float[] dataCPU;
 		private PerformanceCounter pc;
 		
 		public MainForm()
@@ -33,7 +33,7 @@ namespace CPUMonitor
 			InitializeComponent();
 			
 			
-			dataCPU = new double[60];
+			dataCPU = new float[60];
 			updateChartCPU();
 			pc = new PerformanceCounter("Processor Information",
 			                            "% Processor Time", 
@@ -44,7 +44,7 @@ namespace CPUMonitor
 		{						
 			for(; true ;)
 			{
-				dataCPU[dataCPU.Length - 1] = Math.Round(pc.NextValue(), 0);
+				dataCPU[dataCPU.Length - 1] = pc.NextValue();
 				Array.Copy(dataCPU, 1, dataCPU, 0, dataCPU.Length - 1);
 				
 				if(chartCPU.IsHandleCreated)
