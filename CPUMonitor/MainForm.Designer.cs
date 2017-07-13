@@ -39,7 +39,6 @@ namespace CPUMonitor
 		private void InitializeComponent()
 		{
 			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
 			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			this.chartCPU = new System.Windows.Forms.DataVisualization.Charting.Chart();
 			this.btn_StartAcquire = new System.Windows.Forms.Button();
@@ -50,13 +49,10 @@ namespace CPUMonitor
 			// 
 			chartArea1.Name = "ChartArea1";
 			this.chartCPU.ChartAreas.Add(chartArea1);
-			legend1.Name = "Legend1";
-			this.chartCPU.Legends.Add(legend1);
 			this.chartCPU.Location = new System.Drawing.Point(12, 12);
 			this.chartCPU.Name = "chartCPU";
 			series1.ChartArea = "ChartArea1";
 			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-			series1.Legend = "Legend1";
 			series1.Name = "CPU";
 			this.chartCPU.Series.Add(series1);
 			this.chartCPU.Size = new System.Drawing.Size(534, 308);
