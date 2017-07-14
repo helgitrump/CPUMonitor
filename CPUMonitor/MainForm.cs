@@ -85,5 +85,29 @@ namespace CPUMonitor
 			threadCPU.IsBackground = true;
 			threadCPU.Start();			
 		}
+		void Ckb_isHistoryPerCPUCheckedChanged(object sender, EventArgs e)
+		{
+			if(ckb_isHistoryPerCPU.Checked)
+			{
+				
+			}
+			else
+			{
+				
+			}
+		}
+		
+		private void setHistoryAllCPUs()
+		{
+			if (threadCPU.IsAlive)
+			{
+				
+			}
+		}
+		
+		private void setHistoryPerCPU()
+		{
+			
+		}
 	}
 }
