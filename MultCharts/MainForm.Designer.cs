@@ -14,7 +14,7 @@ namespace MultCharts
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
-		private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+		private System.Windows.Forms.DataVisualization.Charting.Chart chart_CPU;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -41,39 +41,39 @@ namespace MultCharts
 			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
 			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-			((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+			this.chart_CPU = new System.Windows.Forms.DataVisualization.Charting.Chart();
+			((System.ComponentModel.ISupportInitialize)(this.chart_CPU)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// chart1
+			// chart_CPU
 			// 
 			chartArea1.Name = "ChartArea1";
 			chartArea2.Name = "ChartArea2";
-			this.chart1.ChartAreas.Add(chartArea1);
-			this.chart1.ChartAreas.Add(chartArea2);
-			this.chart1.Location = new System.Drawing.Point(12, 12);
-			this.chart1.Name = "chart1";
+			this.chart_CPU.ChartAreas.Add(chartArea1);
+			this.chart_CPU.ChartAreas.Add(chartArea2);
+			this.chart_CPU.Location = new System.Drawing.Point(12, 12);
+			this.chart_CPU.Name = "chart_CPU";
 			series1.ChartArea = "ChartArea1";
 			series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
 			series1.Name = "Series1";
 			series2.ChartArea = "ChartArea2";
 			series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
 			series2.Name = "Series2";
-			this.chart1.Series.Add(series1);
-			this.chart1.Series.Add(series2);
-			this.chart1.Size = new System.Drawing.Size(567, 318);
-			this.chart1.TabIndex = 0;
-			this.chart1.Text = "chart_CPU";
+			this.chart_CPU.Series.Add(series1);
+			this.chart_CPU.Series.Add(series2);
+			this.chart_CPU.Size = new System.Drawing.Size(567, 318);
+			this.chart_CPU.TabIndex = 0;
+			this.chart_CPU.Text = "chart_CPU";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(591, 342);
-			this.Controls.Add(this.chart1);
+			this.Controls.Add(this.chart_CPU);
 			this.Name = "MainForm";
 			this.Text = "MultCharts";
-			((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.chart_CPU)).EndInit();
 			this.ResumeLayout(false);
 
 		}
